@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    <title>kintai-discord</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+              <img src="public/logo.png" alt="kintai-discord Logo" class="logo-image" />
+                <h1>kintai-discord</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about">使い方</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <img src="public/main-visual.png" alt="kintai-discord Logo" class="hero-demo" />
+            <div class="hero-content">
+                <h1 class="hero-title">kintai-discord</h1>
+                <p class="hero-subtitle">勤怠管理システム</p>
+                <p class="hero-description">Discordとスプレッドシートを利用した簡単な勤怠管理システムです。<br>出勤・退勤の打刻をDiscord上で行うことができます。</p>
+                <a href="https://discord.com/oauth2/authorize?client_id=1388221578675748904&permissions=2147552256&integration_type=0&scope=bot+applications.commands" target="_blank">
+                    <button class="cta-button">今すぐ始める</button>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About GSAP</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>High Performance</h3>
+                        <p>GSAPは業界最高水準のパフォーマンスを誇るアニメーションライブラリです。</p>
+                    </div>
+                    <div class="card">
+                        <h3>Easy to Use</h3>
+                        <p>シンプルなAPIで複雑なアニメーションを簡単に作成できます。</p>
+                    </div>
+                    <div class="card">
+                        <h3>Cross Browser</h3>
+                        <p>すべてのモダンブラウザで一貫した動作を提供します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="animated-box"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 nasubi_dev - All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
