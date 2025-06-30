@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseenter", function () {
     gsap.to(this, {
-      duration: 0.1,
+      duration: 0.3,
       scale: 1.1,
       boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
       ease: "power2.inOut",
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   button.addEventListener("mouseleave", function () {
     gsap.to(this, {
-      duration: 0.1,
+      duration: 0.3,
       scale: 1,
       boxShadow: "0 5px 10px rgba(0,0,0,0.1)",
       ease: "power2.out",
@@ -194,13 +194,7 @@ async function fetchBotStats() {
   try {
     // 実際のAPIエンドポイントに置き換えてください
     const servers = await fetch(
-      "https://discord.com/api/v10/users/@me/guilds",
-      {
-        headers: {
-          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      }
+      "https://kintai-discord-v2.nasubi.dev/api/stats"
     );
     const data = await servers.json();
     console.log("Bot統計情報:", data);
@@ -208,7 +202,7 @@ async function fetchBotStats() {
     // const userCount = data.userCount || 0;
 
     // 数値をアニメーションで表示
-    animateNumber("#server-count", data.length);
+    animateNumber("#server-count", data.serverCount);
     animateNumber("#user-count", 1);
   } catch (error) {
     console.error("Bot統計情報の取得に失敗しました:", error);
