@@ -6,9 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const heroTimeline = gsap.timeline();
 
   heroTimeline.to(
-    [".hero-title", ".hero-subtitle", ".hero-description", ".cta-button"],
+    [
+      ".hero-title",
+      ".hero-subtitle",
+      ".hero-description",
+      ".cta-button",
+      ".bot-stats",
+    ],
     {
-      duration: 0.5,
+      duration: 1,
       opacity: 1,
       y: 0,
       ease: "power2.out",
@@ -39,7 +45,22 @@ document.addEventListener("DOMContentLoaded", function () {
   // スクロールトリガーでのアニメーション
   gsap.registerPlugin(ScrollTrigger);
 
-  // セクションタイトルのアニメーション
+  // ナビゲーションのスムーススクロール
+  gsap.registerPlugin(ScrollToPlugin);
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: target,
+          ease: "power2.inOut",
+        });
+      }
+    });
+  });
   gsap.to(".about .section-title", {
     scrollTrigger: {
       trigger: ".about .section-title",
@@ -82,6 +103,35 @@ document.addEventListener("DOMContentLoaded", function () {
     ease: "power2.out",
   });
 
+  // 使い方ステップのアニメーション
+  gsap.to(".step", {
+    scrollTrigger: {
+      trigger: ".usage-steps",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+    duration: 1,
+    opacity: 1,
+    y: 0,
+    stagger: 0.3,
+    ease: "power2.out",
+  });
+
+  // お問い合わせセクションのタイトル
+  gsap.to(".features .section-title", {
+    scrollTrigger: {
+      trigger: ".features .section-title",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+    duration: 1,
+    opacity: 1,
+    y: 0,
+    ease: "power2.out",
+  });
+
   // アニメーション付きボックスの回転
   gsap.to(".animated-box", {
     scrollTrigger: {
@@ -96,21 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ease: "power2.inOut",
     yoyo: true,
     repeat: -1,
-  });
-
-  // ナビゲーションのスムーススクロール
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: target,
-          ease: "power2.inOut",
-        });
-      }
-    });
   });
 
   // パララックス効果
@@ -153,6 +188,61 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Discord Bot統計情報を取得する関数
+async function fetchBotStats() {
+  try {
+    // 実際のAPIエンドポイントに置き換えてください
+    const servers = await fetch(
+      "https://discord.com/api/v10/users/@me/guilds",
+      {
+        headers: {
+          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await servers.json();
+    console.log("Bot統計情報:", data);
+
+    // const userCount = data.userCount || 0;
+
+    // 数値をアニメーションで表示
+    animateNumber("#server-count", data.length);
+    animateNumber("#user-count", 1);
+  } catch (error) {
+    console.error("Bot統計情報の取得に失敗しました:", error);
+    document.getElementById("server-count").textContent = "N/A";
+    document.getElementById("user-count").textContent = "N/A";
+  }
+}
+
+// 数値をアニメーションで表示する関数
+function animateNumber(selector, targetNumber) {
+  const element = document.querySelector(selector);
+  const duration = 2000; // 2秒
+  const startTime = Date.now();
+
+  function updateNumber() {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // イージング関数
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const currentNumber = Math.floor(targetNumber * easeOut);
+
+    element.textContent = currentNumber.toLocaleString();
+
+    if (progress < 1) {
+      requestAnimationFrame(updateNumber);
+    }
+  }
+
+  updateNumber();
+}
+
+// ページロード時に統計情報を取得
+setTimeout(fetchBotStats, 1500); // ヒーローアニメーション後に開始
 
 // ウィンドウリサイズ時の処理
 window.addEventListener("resize", function () {

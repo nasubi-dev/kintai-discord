@@ -9,6 +9,7 @@
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 </head>
 <body>
     <header>
@@ -18,6 +19,7 @@
                 <h1>kintai-discord</h1>
             </div>
             <ul class="nav-menu">
+              <li><a href="#features">機能</a></li>
                 <li><a href="#about">使い方</a></li>
                 <li><a href="#contact">お問い合わせ</a></li>
             </ul>
@@ -34,33 +36,89 @@
                 <a href="https://discord.com/oauth2/authorize?client_id=1388221578675748904&permissions=2147552256&integration_type=0&scope=bot+applications.commands" target="_blank">
                     <button class="cta-button">今すぐ始める</button>
                 </a>
+                <div class="bot-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="server-count">-</span>
+                        <span class="stat-label">参加サーバー数</span>
+                    </div>
+                    <!-- <div class="stat-item">
+                        <span class="stat-number" id="user-count">-</span>
+                        <span class="stat-label">総ユーザー数</span>
+                    </div> -->
+                </div>
             </div>
         </section>
 
-        <section id="about" class="about">
+        <section id="features" class="about">
             <div class="container">
-                <h2 class="section-title">About GSAP</h2>
+              <h2 class="section-title">kintai-discordの機能</h2>
                 <div class="cards">
                     <div class="card">
-                        <h3>High Performance</h3>
-                        <p>GSAPは業界最高水準のパフォーマンスを誇るアニメーションライブラリです。</p>
+                        <h3>📋 簡単な勤怠記録</h3>
+                        <p>Discord上で<code>/start</code>と<code>/end</code>コマンドを入力するだけで勤怠記録が完了。時刻指定も可能で、労働時間は自動計算されます。</p>
                     </div>
                     <div class="card">
-                        <h3>Easy to Use</h3>
-                        <p>シンプルなAPIで複雑なアニメーションを簡単に作成できます。</p>
+                        <h3>🔒 安全なデータ管理</h3>
+                        <p>勤怠データは完全に分離され、管理者のGoogleアカウントに保存。OAuth 2.0認証と暗号化により高いセキュリティを実現します。</p>
                     </div>
                     <div class="card">
-                        <h3>Cross Browser</h3>
-                        <p>すべてのモダンブラウザで一貫した動作を提供します。</p>
+                        <h3>📊 自動化されたデータ処理</h3>
+                        <p>月別シートの自動作成、労働時間の計算、データフォーマットをすべて自動化。Google スプレッドシートで直感的にデータを確認できます。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <section id="about" class="contact">
             <div class="container">
-                <h2 class="section-title">Contact</h2>
-                <div class="animated-box"></div>
+                <h2 class="section-title">使い方</h2>
+                <div class="usage-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Botをサーバーに招待</h3>
+                            <p>上記の「今すぐ始める」ボタンからBotをDiscordサーバーに招待します。必要な権限は自動で設定されます。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>初期設定（管理者のみ）</h3>
+                            <p><code>/init</code>コマンドを実行し、Google Cloud Projectを作成してOAuth認証を完了。専用スプレッドシートが自動作成されます。</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>勤怠記録開始</h3>
+                            <p><code>/start</code>で勤務開始、<code>/end</code>で勤務終了。時刻指定も可能で、労働時間は自動計算されます。</p>
+                            <div class="command-examples">
+                                <code>/start</code>
+                                <code>/start time:09:00</code>
+                                <code>/end</code>
+                                <code>/end time:18:00</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="features">
+            <div class="container">
+              <h2 class="section-title">お問い合わせ</h2>
+              <div class="animated-box"></div>
+                <div class="contact-info">
+                    <p>技術的な問題やご質問がございましたら、以下からお気軽にお問い合わせください。</p>
+                    <div class="contact-links">
+                        <a href="https://github.com/nasubi-dev/kintai-discord-v2" target="_blank" class="contact-link">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://discord.gg/h8Eg7mJwCQ" target="_blank" class="contact-link">
+                            <span>Discord</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
