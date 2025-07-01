@@ -210,11 +210,17 @@ document.addEventListener("DOMContentLoaded", function () {
 // Discord Bot統計情報を取得する関数
 async function fetchBotStats() {
   try {
-    // 実際のAPIエンドポイントに置き換えてください
-    const servers = await fetch(
-      "https://kintai-discord-v2.nasubi.dev/api/stats"
+    let response = await fetch(
+      "https://kintai-discord-v2.nasubi.dev/api/stats",
+      {
+        method: "GET",
+        headers: {
+          Accept: "*/*",
+          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        },
+      }
     );
-    const data = await servers.json();
+    let data = await response.json().data;
     console.log("Bot統計情報:", data);
 
     // const userCount = data.userCount || 0;
