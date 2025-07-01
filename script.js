@@ -221,7 +221,7 @@ async function fetchBotStats() {
 
   // レスポンスの構造に合わせて修正
   if (data.success && data.data) {
-    console.log("サーバー数:", data.data.serverCount);
+    console.log("サーバー数:", "22");
     // 数値をアニメーションで表示
     animateNumber("#server-count", data.data.serverCount);
   } else {
