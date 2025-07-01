@@ -218,6 +218,7 @@ async function fetchBotStats() {
   });
   let data = await response.json();
   console.log("Bot統計情報:", data);
+    animateNumber("#server-count", 22);
 
   // レスポンスの構造に合わせて修正
   if (data.success && data.data) {
