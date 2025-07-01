@@ -226,12 +226,12 @@ async function fetchBotStats() {
     // const userCount = data.userCount || 0;
 
     // 数値をアニメーションで表示
-    animateNumber("#server-count", data.serverCount);
-    animateNumber("#user-count", 1);
+    animateNumber("#server-count", data.data.serverCount);
+    // animateNumber("#user-count", 1);
   } catch (error) {
     console.error("Bot統計情報の取得に失敗しました:", error);
     document.getElementById("server-count").textContent = "N/A";
-    document.getElementById("user-count").textContent = "N/A";
+    // document.getElementById("user-count").textContent = "N/A";
   }
 }
 
