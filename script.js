@@ -222,11 +222,12 @@ async function fetchBotStats() {
     );
     let data = await response.json().data;
     console.log("Bot統計情報:", data);
+    console.log("サーバー数:", data.serverCount);
 
     // const userCount = data.userCount || 0;
 
     // 数値をアニメーションで表示
-    animateNumber("#server-count", data.data.serverCount);
+    animateNumber("#server-count", data.serverCount);
     // animateNumber("#user-count", 1);
   } catch (error) {
     console.error("Bot統計情報の取得に失敗しました:", error);
