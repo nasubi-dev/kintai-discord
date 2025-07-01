@@ -220,7 +220,7 @@ async function fetchBotStats() {
         },
       }
     );
-    let data = await response.json().data;
+    let data = await response.json();
     console.log("Bot統計情報:", data);
     console.log("サーバー数:", data.serverCount);
 
