@@ -209,82 +209,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Discord Bot統計情報を取得する関数
 async function fetchBotStats() {
-  try {
-    console.log("API呼び出し開始...");
+  let response = await fetch("https://kintai-discord-v2.nasubi.dev/api/stats", {
+    method: "GET",
+    headers: {
+      Accept: "*/*",
+      "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+    },
+  });
+  let data = await response.json();
+  console.log("Bot統計情報:", data);
 
-    // 複数のプロキシを試す
-    const proxies = [
-      "https://kintai-discord-v2.nasubi.dev/api/stats", // 直接
-      "https://cors-anywhere.herokuapp.com/https://kintai-discord-v2.nasubi.dev/api/stats", // cors-anywhere
-      "https://api.allorigins.win/get?url=" +
-        encodeURIComponent("https://kintai-discord-v2.nasubi.dev/api/stats"), // allorigins
-    ];
-
-    let response;
-    let lastError;
-
-    for (let i = 0; i < proxies.length; i++) {
-      try {
-        console.log(`プロキシ ${i + 1} を試行中: ${proxies[i]}`);
-        response = await fetch(proxies[i], {
-          method: "GET",
-          headers: {
-            Accept: "*/*",
-            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-            "X-Requested-With": "XMLHttpRequest",
-          },
-        });
-
-        if (response.ok) {
-          console.log(`プロキシ ${i + 1} で成功`);
-          break;
-        }
-      } catch (error) {
-        console.log(`プロキシ ${i + 1} でエラー:`, error);
-        lastError = error;
-        continue;
-      }
-    }
-
-    if (!response || !response.ok) {
-      throw lastError || new Error("全てのプロキシで失敗");
-    }
-
-    console.log("レスポンス受信:", response);
-    console.log("レスポンスステータス:", response.status);
-    console.log("レスポンスOK:", response.ok);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    let data = await response.json();
-    console.log("受信データ:", data);
-
-    // alloriginsプロキシを使用した場合の処理
-    if (data.contents) {
-      data = JSON.parse(data.contents);
-      console.log("パース後のデータ:", data);
-    }
-
-    console.log("Bot統計情報:", data);
-
-    // レスポンスの構造に合わせて修正
-    if (data.success && data.data) {
-      console.log("サーバー数:", data.data.serverCount);
-      // 数値をアニメーションで表示
-      animateNumber("#server-count", data.data.serverCount);
-    } else {
-      console.error("APIレスポンスの形式が期待と異なります:", data);
-      document.getElementById("server-count").textContent = "N/A";
-    }
-  } catch (error) {
-    console.error("Bot統計情報の取得に失敗しました:", error);
-    console.error("エラーの詳細:", error.message);
-    console.error("エラーの種類:", error.name);
-    console.error("エラーのスタック:", error.stack);
+  // レスポンスの構造に合わせて修正
+  if (data.success && data.data) {
+    console.log("サーバー数:", data.data.serverCount);
+    // 数値をアニメーションで表示
+    animateNumber("#server-count", data.data.serverCount);
+  } else {
+    console.error("APIレスポンスの形式が期待と異なります:", data);
     document.getElementById("server-count").textContent = "N/A";
   }
+  // animateNumber("#user-count", 1);
 }
 
 // 数値をアニメーションで表示する関数
