@@ -222,17 +222,20 @@ async function fetchBotStats() {
     );
     let data = await response.json();
     console.log("Bot統計情報:", data);
-    console.log("サーバー数:", data.serverCount);
 
-    // const userCount = data.userCount || 0;
-
-    // 数値をアニメーションで表示
-    animateNumber("#server-count", data.serverCount);
+    // レスポンスの構造に合わせて修正
+    if (data.success && data.data) {
+      console.log("サーバー数:", data.data.serverCount);
+      // 数値をアニメーションで表示
+      animateNumber("#server-count", data.data.serverCount);
+    } else {
+      console.error("APIレスポンスの形式が期待と異なります:", data);
+      document.getElementById("server-count").textContent = "N/A";
+    }
     // animateNumber("#user-count", 1);
   } catch (error) {
     console.error("Bot統計情報の取得に失敗しました:", error);
     document.getElementById("server-count").textContent = "N/A";
-    // document.getElementById("user-count").textContent = "N/A";
   }
 }
 
