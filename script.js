@@ -222,7 +222,6 @@ async function fetchBotStats() {
 
   // レスポンスの構造に合わせて修正
   if (data.success && data.data) {
-    console.log("サーバー数:", "22");
     // 数値をアニメーションで表示
     animateNumber("#server-count", data.data.serverCount);
   } else {
@@ -235,7 +234,7 @@ async function fetchBotStats() {
 // 数値をアニメーションで表示する関数
 function animateNumber(selector, targetNumber) {
   const element = document.querySelector(selector);
-  const duration = 2000; // 2秒
+  const duration = 500; // 2秒
   const startTime = Date.now();
 
   function updateNumber() {
