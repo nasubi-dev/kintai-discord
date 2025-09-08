@@ -136,6 +136,35 @@ document.addEventListener("DOMContentLoaded", function () {
     ease: "power2.out",
   });
 
+  // 変更履歴セクションのタイトル
+  gsap.to(".changelog .section-title", {
+    scrollTrigger: {
+      trigger: ".changelog .section-title",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+    duration: 1,
+    opacity: 1,
+    y: 0,
+    ease: "power2.out",
+  });
+
+  // 変更履歴エントリのアニメーション
+  gsap.to(".changelog-entry", {
+    scrollTrigger: {
+      trigger: ".changelog-entries",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+    duration: 1,
+    opacity: 1,
+    y: 0,
+    stagger: 0.2,
+    ease: "power2.out",
+  });
+
   // お問い合わせセクションのタイトル
   gsap.to(".features .section-title", {
     scrollTrigger: {
