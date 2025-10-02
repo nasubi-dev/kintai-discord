@@ -596,3 +596,260 @@ footer {
     font-size: 1.3rem;
   }
 }
+
+/* QAセクション */
+.qa-section {
+  padding: 5rem 0;
+  /* background: white; */
+}
+
+.qa-items {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.qa-item {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.qa-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.qa-header {
+  display: flex;
+  align-items: center;
+}
+
+.qa-number {
+  background-color: #667eea;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.qa-header h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0;
+}
+
+.qa-content {
+  color: #666;
+  line-height: 1.8;
+  padding-left: 60px;
+}
+
+.qa-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.qa-content li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.qa-content li:before {
+  content: "•";
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+}
+
+.qa-content code {
+  background: rgba(102, 126, 234, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: #667eea;
+}
+
+.qa-content p {
+  margin-bottom: 1rem;
+}
+
+.qa-content strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.command-example {
+  background: #2d2d2d;
+  color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-family: "Courier New", monospace;
+}
+
+.command-example code {
+  background: none;
+  color: #98c379;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* サポートセクション */
+.support-section {
+  padding: 5rem 0;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.support-section .section-title {
+  margin-bottom: 2rem;
+}
+
+.support-section .contact-info {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.support-section .contact-info p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.support-section .contact-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.support-section .contact-link {
+  background-color: #667eea;
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.support-section .contact-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ========================================
+   QAページ レスポンシブデザイン
+   ======================================== */
+
+@media (max-width: 768px) {
+  .qa-hero .hero-title {
+    font-size: 2rem;
+  }
+
+  .qa-hero .hero-description {
+    font-size: 1rem;
+  }
+
+  .qa-section {
+    padding: 3rem 0;
+  }
+
+  .qa-item {
+    padding: 1.5rem;
+  }
+
+  .qa-header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .qa-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+  }
+
+  .qa-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .qa-content {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+
+  .support-section .contact-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .support-section .contact-link {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .qa-hero {
+    height: 35vh;
+    min-height: 250px;
+  }
+
+  .qa-hero .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .qa-hero .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .qa-section {
+    padding: 2rem 0;
+  }
+
+  .qa-item {
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .qa-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .qa-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .qa-content {
+    font-size: 0.95rem;
+  }
+
+  .command-example {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+}

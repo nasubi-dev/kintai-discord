@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    <title>トラブルシューティング - kintai-discord</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="public/logo.png" alt="kintai-discord Logo" class="logo-image" />
+                <h1>kintai-discord</h1>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/#features">機能</a></li>
+                <li><a href="/#about">使い方</a></li>
+                <li><a href="/#changelog">変更履歴</a></li>
+                <li><a href="/#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="qa-section">
+            <div class="container">
+                <div class="">
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">1</div>
+                            <h3>コマンドが表示されない</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>Bot に <code>スラッシュコマンドを使用</code> 権限があるか確認</li>
+                                <li>サーバーから一度 Bot を削除して、再度招待してください</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">2</div>
+                            <h3>「管理者権限が必要です」と表示される</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li><code>/init</code> や <code>/reset</code> は Discord サーバーの管理者のみ実行可能です</li>
+                                <li>サーバー設定で管理者権限を確認してください</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">3</div>
+                            <h3>「サーバー設定が見つかりません」</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>最初に管理者が <code>/init</code> コマンドで初期設定を行ってください</li>
+                                <li>設定に問題がある場合は <code>/reset</code> でリセット後、再設定してください</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">4</div>
+                            <h3>Google OAuth エラー</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li><strong>redirect_uri_mismatch</strong>: Google Cloud Console のリダイレクト URI 設定を確認</li>
+                                <li><strong>権限不足</strong>: Google Sheets API が有効化されているか確認</li>
+                                <li>設定ガイドページの手順を再度確認してください</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">5</div>
+                            <h3>データが記録されない</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li><code>/config</code> コマンドで設定状況を確認</li>
+                                <li>Google スプレッドシートの共有設定を確認</li>
+                                <li>時間を置いて再度お試しください</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">6</div>
+                            <h3>チャンネル名が <code>channel-XXXXXX</code> と表示される</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>Bot に該当チャンネルの「チャンネルを見る」権限を付与してください</li>
+                                <li>または､チャンネルをパブリックに設定してください</li>
+                                <li>権限不足でも勤怠記録は正常に動作します</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">7</div>
+                            <h3>通信エラー・タイムアウト</h3>
+                        </div>
+                        <div class="qa-content">
+                            <ul>
+                                <li>スマホなど通信環境が悪い場合は自動的にリトライされます</li>
+                                <li>「処理中...」メッセージの後、最終結果をお待ちください</li>
+                                <li>連携しているスプレッドシートを確認してください｡実行自体はできている場合があります｡</li>
+                                <li>長時間応答がない場合は再度コマンドを実行してください</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="qa-header">
+                            <div class="qa-number">8</div>
+                            <h3>設定をリセットしたい</h3>
+                        </div>
+                        <div class="qa-content">
+                            <p>管理者が以下のコマンドを実行：</p>
+                            <div class="command-example">
+                                <code>/reset</code>
+                            </div>
+                            <p>その後、<code>/init</code> で再設定を行ってください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+              <h2 class="support-section">お問い合わせ</h2>
+                <div class="contact-info">
+                    <p>上記で解決しない技術的な問題がございましたら、以下からお気軽にお問い合わせください。</p>
+                    <div class="contact-links">
+                        <a href="https://github.com/nasubi-dev/kintai-discord-v2" target="_blank" class="contact-link">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://discord.gg/h8Eg7mJwCQ" target="_blank" class="contact-link">
+                            <span>Discord</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 nasubi_dev - All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // GSAPアニメーション
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ヒーローセクションのアニメーション
+        gsap.from('.qa-hero .hero-title', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.qa-hero .hero-description', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.2,
+            ease: 'power3.out'
+        });
+
+        // QAアイテムのアニメーション
+        gsap.utils.toArray('.qa-item').forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // サポートセクションのアニメーション
+        gsap.from('.support-section .contact-info', {
+            scrollTrigger: {
+                trigger: '.support-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out'
+        });
+    </script>
+</body>
+</html>
