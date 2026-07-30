@@ -859,6 +859,13 @@ footer {
   padding: 4rem 0 5rem;
 }
 
+/* GSAPを使わないページのため、初期状態から表示しておく */
+.legal-section .section-title {
+  opacity: 1;
+  transform: none;
+  margin-bottom: 2rem;
+}
+
 .legal-body {
   max-width: 900px;
   margin: 0 auto;
@@ -924,8 +931,14 @@ footer {
   color: #333;
 }
 
-.legal-article a {
+.legal-article a:not(.contact-link) {
   color: #667eea;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-article a:not(.contact-link):hover {
+  opacity: 0.75;
 }
 
 .legal-note {
@@ -987,15 +1000,15 @@ footer .footer-links {
   margin-top: 0.8rem;
 }
 
-footer .footer-links a {
+footer a {
   color: #f8f9fa;
   text-decoration: none;
   font-size: 0.9rem;
-  opacity: 0.8;
+  opacity: 0.75;
   transition: opacity 0.3s ease;
 }
 
-footer .footer-links a:hover {
+footer a:hover {
   opacity: 1;
   text-decoration: underline;
 }
