@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="kintai-discord のプライバシーポリシーです。取得する情報、利用目的、保存期間、削除方法について説明しています。">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    <title>プライバシーポリシー - kintai-discord</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="public/logo.png" alt="kintai-discord Logo" class="logo-image" />
+                <h1>kintai-discord</h1>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/#features">機能</a></li>
+                <li><a href="/#about">使い方</a></li>
+                <li><a href="/#changelog">変更履歴</a></li>
+                <li><a href="/#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="legal-section">
+            <div class="container">
+                <h2 class="section-title" style="opacity: 1; transform: none;">プライバシーポリシー</h2>
+                <div class="legal-body">
+                    <p class="legal-lead">
+                        nasubi_dev（以下「運営者」といいます）は、Discord Bot「kintai-discord」および関連するウェブサイト（以下あわせて「本サービス」といいます）における情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
+                    </p>
+                    <p class="legal-updated">制定日：2026年7月31日</p>
+
+                    <div class="legal-article">
+                        <h3>1. 基本方針</h3>
+                        <p>本サービスは、勤怠記録という性質上、必要最小限の情報のみを取得することを基本方針としています。運営者は勤怠データを自らのデータベースに蓄積せず、記録はすべてサーバー管理者自身の Google アカウント上のスプレッドシートに保存されます。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>2. 取得する情報</h3>
+
+                        <h4>2-1. Bot の利用に伴い取得する情報</h4>
+                        <div class="legal-table-wrapper">
+                            <table class="legal-table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Discord ユーザー ID</td>
+                                        <td>コマンドを実行した利用者の識別子</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Discord ユーザー名</td>
+                                        <td>スプレッドシート上での表示に使用</td>
+                                    </tr>
+                                    <tr>
+                                        <td>サーバー（ギルド）ID</td>
+                                        <td>サーバーごとの設定およびデータ分離に使用</td>
+                                    </tr>
+                                    <tr>
+                                        <td>チャンネル ID・チャンネル名</td>
+                                        <td>プロジェクト名として記録に使用</td>
+                                    </tr>
+                                    <tr>
+                                        <td>勤務開始時刻・終了時刻</td>
+                                        <td>コマンド実行時刻または利用者が指定した時刻</td>
+                                    </tr>
+                                    <tr>
+                                        <td>作業内容（todo）</td>
+                                        <td><code>/end</code> コマンドで利用者が入力した内容</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Google OAuth トークン</td>
+                                        <td>サーバー管理者が <code>/init</code> で連携した際に発行されるアクセストークンおよびリフレッシュトークン</td>
+                                    </tr>
+                                    <tr>
+                                        <td>連携スプレッドシートの ID・URL</td>
+                                        <td>データの記録先の特定に使用</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="legal-note">
+                            <p>本サービスは、メッセージの本文、音声、添付ファイル、メールアドレス、電話番号、その他上表に記載のない情報を取得しません。スラッシュコマンドとして明示的に実行された内容のみを処理します。</p>
+                        </div>
+
+                        <h4>2-2. ウェブサイトの閲覧に伴い取得する情報</h4>
+                        <p>本ウェブサイトは、Cookie を使用したトラッキング、広告配信および行動解析ツールを一切使用していません。ただし、以下の技術的な通信が発生します。</p>
+                        <ul>
+                            <li>トップページに表示する導入サーバー数を取得するため、運営者の API（<code>kintai-discord-v2.nasubi.dev</code>）へリクエストを送信します。この際、通信の性質上、IP アドレスおよびブラウザ情報がホスティング事業者（Cloudflare）のアクセスログに記録されます。</li>
+                            <li>ページの表示に必要なライブラリを外部の CDN（cdnjs.cloudflare.com）から読み込みます。</li>
+                            <li>本ウェブサイトのホスティング事業者において、標準的なアクセスログが記録される場合があります。</li>
+                        </ul>
+                        <p>これらのログは、障害対応およびセキュリティ確保の目的でのみ参照され、個人の特定を目的とした利用は行いません。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>3. 利用目的</h3>
+                        <p>取得した情報は、以下の目的の範囲内でのみ利用します。</p>
+                        <ol>
+                            <li>勤怠記録の作成、更新および労働時間の自動計算</li>
+                            <li>連携スプレッドシートへの記録および参照</li>
+                            <li>勤務中状態の管理（重複記録の防止）</li>
+                            <li>サーバーごとの設定管理およびデータ分離</li>
+                            <li>不具合の調査、障害対応およびセキュリティの確保</li>
+                        </ol>
+                        <p>運営者は、上記の目的を超えて情報を利用しません。また、取得した情報を広告配信、プロファイリング、機械学習モデルの学習その他の目的に利用することはありません。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>4. 保存場所と保存期間</h3>
+                        <div class="legal-table-wrapper">
+                            <table class="legal-table">
+                                <thead>
+                                    <tr>
+                                        <th>情報</th>
+                                        <th>保存場所</th>
+                                        <th>保存期間</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>勤怠データ（記録済み）</td>
+                                        <td>サーバー管理者の Google アカウント上のスプレッドシート</td>
+                                        <td>サーバー管理者が削除するまで</td>
+                                    </tr>
+                                    <tr>
+                                        <td>勤務中の一時状態</td>
+                                        <td>Cloudflare KV</td>
+                                        <td><code>/end</code> の実行時に削除。未終了の場合は最大 24 時間で自動削除</td>
+                                    </tr>
+                                    <tr>
+                                        <td>サーバー設定（スプレッドシート ID、暗号化トークン等）</td>
+                                        <td>Cloudflare KV</td>
+                                        <td><code>/reset</code> の実行時に削除されるまで</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OAuth 認証中の一時情報</td>
+                                        <td>Cloudflare KV</td>
+                                        <td>10 分〜1 時間で自動削除</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>5. 勤怠データの管理責任</h3>
+                        <ol>
+                            <li>勤怠データは、Bot を導入した Discord サーバーの管理者が所有する Google アカウント上のスプレッドシートに保存されます。当該データの管理責任は、サーバー管理者が負います。</li>
+                            <li>スプレッドシートの共有設定、閲覧範囲の管理、バックアップおよび削除は、サーバー管理者の責任において行われます。</li>
+                            <li>運営者は、障害調査、不具合対応その他の運用上必要な場合を除き、勤怠データの内容を参照しません。</li>
+                            <li>もっとも、本サービスは連携スプレッドシートへ書き込むために暗号化された OAuth トークンを保持しているため、技術的にはスプレッドシートへアクセスすることが可能です。運営者は、この技術的なアクセス手段を前項に定める場合を除いて用いないことを表明します。この点を許容できない場合は、本サービスをご利用にならないでください。</li>
+                        </ol>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>6. Google ユーザーデータの取扱い</h3>
+                        <ol>
+                            <li>本サービスの Google 連携は、各サーバー管理者がご自身で作成した Google Cloud Platform プロジェクトの OAuth クライアントを用いて行われます。運営者が管理する単一の OAuth アプリケーションを経由するものではありません。</li>
+                            <li>本サービスが要求する OAuth スコープは <code>https://www.googleapis.com/auth/spreadsheets</code> のみです。Gmail、連絡先、カレンダー、Google ドライブ全体の閲覧権限その他のスコープは要求しません。</li>
+                            <li>取得したアクセストークンおよびリフレッシュトークンは、AES-256-GCM 方式で暗号化したうえで Cloudflare KV に保存されます。</li>
+                            <li>本サービスが Google API を通じて取得した情報は、本ポリシー第 3 項に定める勤怠記録機能の提供のみに使用し、第三者への提供、広告目的での利用および機械学習モデルの学習への利用は行いません。本サービスは Google API Services User Data Policy（Limited Use 要件を含む）に準拠します。</li>
+                            <li>Google アカウントとの連携は、Discord 上で <code>/reset</code> を実行するか、<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google アカウントのセキュリティ設定</a>からアプリのアクセス権を削除することで、いつでも解除できます。</li>
+                        </ol>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>7. 第三者提供および外部サービスの利用</h3>
+                        <p>運営者は、法令に基づく場合を除き、取得した情報を第三者に提供または販売しません。ただし、本サービスの提供にあたり、以下の外部サービスを利用しています。</p>
+                        <div class="legal-table-wrapper">
+                            <table class="legal-table">
+                                <thead>
+                                    <tr>
+                                        <th>サービス</th>
+                                        <th>用途</th>
+                                        <th>プライバシーポリシー</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Discord</td>
+                                        <td>Bot の動作基盤、コマンドの受信および応答</td>
+                                        <td><a href="https://discord.com/privacy" target="_blank" rel="noopener">discord.com/privacy</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Google (Sheets API)</td>
+                                        <td>勤怠データの記録先</td>
+                                        <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cloudflare</td>
+                                        <td>Bot の実行環境（Workers）および設定・状態の保存（KV）</td>
+                                        <td><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>GitHub</td>
+                                        <td>本ウェブサイトのホスティングおよびソースコードの公開</td>
+                                        <td><a href="https://docs.github.com/ja/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub プライバシーステートメント</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>これらのサービスは日本国外のサーバーで運用される場合があり、情報が国外に移転される可能性があります。本サービスをご利用いただくことで、この点についてご同意いただいたものとみなします。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>8. 安全管理措置</h3>
+                        <ul>
+                            <li>Google OAuth トークンは AES-256-GCM 方式で暗号化して保存しています。</li>
+                            <li>Discord からのリクエストは公開鍵による署名検証を行い、不正なリクエストを遮断しています。</li>
+                            <li>データはサーバー（ギルド）ID を単位として完全に分離され、他のサーバーの情報が参照されることはありません。</li>
+                            <li>初期設定およびリセットの操作は、Discord サーバーの管理者権限を持つ方のみが実行できます。</li>
+                            <li>すべての通信は HTTPS により暗号化されています。</li>
+                            <li>認証情報等の機密情報は、Cloudflare Workers のシークレット機能により管理しています。</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>9. データの削除方法</h3>
+                        <ol>
+                            <li><strong>Bot の設定および保存情報の削除：</strong>Discord サーバー上で <code>/reset</code> コマンドを実行してください。Cloudflare KV に保存されたサーバー設定および暗号化トークンが削除されます。</li>
+                            <li><strong>勤怠データの削除：</strong>連携スプレッドシートはサーバー管理者の Google アカウント上にあるため、サーバー管理者ご自身で削除してください。</li>
+                            <li><strong>Google 連携の解除：</strong><a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google アカウントのセキュリティ設定</a>からアクセス権を削除してください。</li>
+                            <li><strong>利用の完全な停止：</strong>Discord サーバーから Bot を退出させてください。</li>
+                        </ol>
+                        <p>上記の方法によらず削除をご希望の場合や、ご自身の情報の開示・訂正をご希望の場合は、第 12 項のお問い合わせ窓口までご連絡ください。運営者は、ご本人であることを確認のうえ、合理的な範囲かつ可能な範囲で対応します。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>10. 未成年者の利用について</h3>
+                        <p>本サービスは Discord 上で提供されるため、利用にあたっては Discord の定める最低年齢要件を満たしている必要があります。未成年の方が本サービスを利用する場合は、保護者の同意を得たうえでご利用ください。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>11. 本ポリシーの変更</h3>
+                        <p>運営者は、法令の変更または本サービスの内容の変更に応じ、本ポリシーを変更することがあります。変更後の本ポリシーは、本ページに掲載した時点から効力を生じます。重要な変更を行う場合は、可能な範囲で本ウェブサイトまたは Discord サーバー上で告知します。</p>
+                    </div>
+
+                    <div class="legal-article">
+                        <h3>12. お問い合わせ</h3>
+                        <p>本ポリシーに関するお問い合わせ、情報の開示・訂正・削除のご請求は、以下の窓口までご連絡ください。</p>
+                        <p>運営者：nasubi_dev（個人）</p>
+                        <div class="legal-links">
+                            <a href="https://github.com/nasubi-dev/kintai-discord-v2/issues" target="_blank" rel="noopener" class="contact-link">
+                                <span>GitHub Issues</span>
+                            </a>
+                            <a href="https://discord.gg/h8Eg7mJwCQ" target="_blank" rel="noopener" class="contact-link">
+                                <span>Discord サーバー</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 nasubi_dev - All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/">ホーム</a>
+            <a href="qa.html">トラブルシューティング</a>
+            <a href="terms.html">利用規約</a>
+            <a href="privacy.html">プライバシーポリシー</a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
