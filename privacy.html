@@ -37,7 +37,7 @@
                     <p class="legal-lead">
                         nasubi_dev（以下「運営者」といいます）は、Discord Bot「kintai-discord」および関連するウェブサイト（以下あわせて「本サービス」といいます）における情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
                     </p>
-                    <p class="legal-updated">制定日：2026年7月31日<br>改定日：2026年10月7日</p>
+                    <p class="legal-updated">制定日：2026年7月31日<br>改定日：2026年10月13日</p>
 
                     <div class="legal-article">
                         <h3>1. 基本方針</h3>
@@ -86,12 +86,16 @@
                                         <td>サーバー管理者が <code>/init</code> で連携した際に発行されるアクセストークンおよびリフレッシュトークン</td>
                                     </tr>
                                     <tr>
+                                        <td>Google OAuth クライアント ID・クライアントシークレット</td>
+                                        <td>サーバー管理者が <code>/init</code> で入力したもの。トークンの更新に使用</td>
+                                    </tr>
+                                    <tr>
                                         <td>連携スプレッドシートの ID・URL</td>
                                         <td>データの記録先の特定に使用</td>
                                     </tr>
                                     <tr>
                                         <td>コマンドの利用記録</td>
-                                        <td>実行されたコマンド名、処理の成否、処理時間（利用状況の集計に使用）</td>
+                                        <td>実行されたコマンド名、処理の成否、処理時間、実行日時、サーバー ID、匿名化したユーザー識別子（利用状況の集計に使用）。ユーザー識別子は Discord ユーザー ID を日ごとに変わる値に変換したもので、元のユーザー ID には戻せません</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -142,12 +146,7 @@
                                         <td>サーバー管理者が削除するまで</td>
                                     </tr>
                                     <tr>
-                                        <td>勤務中の一時状態</td>
-                                        <td>Cloudflare KV</td>
-                                        <td><code>/end</code> の実行時に削除。未終了の場合は最大 24 時間で自動削除</td>
-                                    </tr>
-                                    <tr>
-                                        <td>サーバー設定（スプレッドシート ID、暗号化トークン等）</td>
+                                        <td>サーバー設定（スプレッドシート ID、暗号化トークン、暗号化した OAuth クライアント情報等）</td>
                                         <td>Cloudflare KV</td>
                                         <td><code>/reset</code> の実行時に削除されるまで</td>
                                     </tr>
@@ -157,9 +156,9 @@
                                         <td>10 分〜1 時間で自動削除</td>
                                     </tr>
                                     <tr>
-                                        <td>コマンドの利用記録（コマンド名、成否、処理時間、サーバー ID、ユーザー ID）</td>
+                                        <td>コマンドの利用記録（コマンド名、成否、処理時間、実行日時、サーバー ID、匿名化したユーザー識別子）</td>
                                         <td>Cloudflare Workers Analytics Engine</td>
-                                        <td>最大 3 か月で自動削除（勤務時刻・作業内容は含みません）</td>
+                                        <td>最大 3 か月で自動削除（作業内容は含みません。ユーザー識別子から、どのユーザーが実行したかは特定できません）</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -212,7 +211,7 @@
                                     </tr>
                                     <tr>
                                         <td>Cloudflare</td>
-                                        <td>Bot の実行環境（Workers）および設定・状態の保存（KV）</td>
+                                        <td>Bot の実行環境（Workers）、設定の保存（KV）および利用記録の集計（Workers Analytics Engine）</td>
                                         <td><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></td>
                                     </tr>
                                     <tr>
@@ -241,7 +240,7 @@
                     <div class="legal-article">
                         <h3>9. データの削除方法</h3>
                         <ol>
-                            <li><strong>Bot の設定および保存情報の削除：</strong>Discord サーバー上で <code>/reset</code> コマンドを実行してください。Cloudflare KV に保存されたサーバー設定および暗号化トークンが削除されます。</li>
+                            <li><strong>Bot の設定および保存情報の削除：</strong>Discord サーバー上で <code>/reset</code> コマンドを実行してください。Cloudflare KV に保存されたサーバー設定、暗号化トークンおよび OAuth クライアント情報が削除されます。</li>
                             <li><strong>勤怠データの削除：</strong>連携スプレッドシートはサーバー管理者の Google アカウント上にあるため、サーバー管理者ご自身で削除してください。</li>
                             <li><strong>Google 連携の解除：</strong><a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google アカウントのセキュリティ設定</a>からアクセス権を削除してください。</li>
                             <li><strong>利用の完全な停止：</strong>Discord サーバーから Bot を退出させてください。</li>
